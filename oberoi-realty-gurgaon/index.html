@@ -1368,7 +1368,7 @@
     .af-text p { font-size: 0.7rem; }
 
     /* VIDEO */
-    .video-wrapper { aspect-ratio: 9/16; max-height: 70vh; }
+    .video-wrapper { height: 100vh; }
     .video-overlay-text h2 { font-size: clamp(1.3rem, 5vw, 1.8rem); }
     .video-overlay-text p { font-size: 0.7rem; }
     .play-btn { width: 64px; height: 64px; }
@@ -1470,15 +1470,14 @@
   .video-wrapper {
     position: relative;
     width: 100%;
-    aspect-ratio: 16/9;
-    max-height: 85vh;
-    overflow: hidden;
+    height: 100vh;
+    background: var(--black);
   }
 
   .video-wrapper video {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     display: block;
   }
 

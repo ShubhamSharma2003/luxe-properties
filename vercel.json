@@ -1,11 +1,4 @@
 {
-  "redirects": [
-    {
-      "source": "/",
-      "destination": "/oberoi-realty-gurgaon",
-      "permanent": true
-    }
-  ],
   "headers": [
     {
       "source": "/assets/images/(.*)",

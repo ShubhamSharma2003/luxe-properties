@@ -21,6 +21,24 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   gtag('config', 'G-TEVSEH1KQ2');
 </script>
 
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1701760866768169');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1701760866768169&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
 <!-- ── PRIMARY SEO TAGS ── -->
 <title>Luxury Properties in Gurgaon | Buy Premium Homes 2025 | Luxe Property</title>
 <meta name="description" content="Explore Gurgaon's finest luxury properties across Golf Course Road, Golf Course Extension & Dwarka Expressway. Pre-launch access to DLF, Oberoi, Godrej & Sobha. HNI & NRI advisory since 2005. Call +91 8010-303-303.">
@@ -863,10 +881,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="nfm fi d1">
         <div class="ftt">Request a Callback</div>
         <p class="fts">Our advisory team responds within 2 hours — including weekends.</p>
-        <div class="fg"><label>Full Name</label><input type="text" placeholder="Your name" autocomplete="name"></div>
+        <div class="fg"><label>Full Name</label><input type="text" id="lp-name" placeholder="Your name" autocomplete="name"></div>
         <div class="fgr">
-          <div class="fg"><label>Phone / WhatsApp</label><input type="tel" placeholder="+91 or country code" autocomplete="tel"></div>
-          <div class="fg"><label>Email Address</label><input type="email" placeholder="you@email.com" autocomplete="email"></div>
+          <div class="fg"><label>Phone / WhatsApp</label><input type="tel" id="lp-phone" placeholder="+91 or country code" autocomplete="tel"></div>
+          <div class="fg"><label>Email Address</label><input type="email" id="lp-email" placeholder="you@email.com" autocomplete="email"></div>
         </div>
         <div class="fgr">
           <div class="fg"><label>Budget Range</label>
@@ -879,7 +897,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="fg"><label>I Am</label>
           <select aria-label="Buyer type"><option value="">Select profile</option><option>NRI — Looking to Invest</option><option>Resident HNI Buyer</option><option>Investor — Capital Appreciation</option><option>End User / Self-Occupation</option></select>
         </div>
-        <button class="fb2" type="button">Schedule Advisory Call →</button>
+        <button class="fb2" type="button" onclick="submitLpForm()">Schedule Advisory Call →</button>
         <p class="fn">We respect your privacy. Your information is never shared with third parties. RERA: RC/HARERA/GGM/1940/1535/2022/308. Channel partner communication — not a developer advertisement. Prices are indicative.</p>
       </div>
     </div>
@@ -1031,6 +1049,16 @@ function chT(i){
   ct=i;
 }
 setInterval(()=>chT((ct+1)%td.length),6000);
+
+function submitLpForm(){
+  var name=document.getElementById('lp-name').value.trim();
+  var phone=document.getElementById('lp-phone').value.trim();
+  var email=document.getElementById('lp-email').value.trim();
+  if(!name||!phone||!email){alert('Please fill in your name, email and phone number.');return;}
+  if(typeof fbq==='function')fbq('track','Lead',{content_name:'homepage_callback_form'});
+  var msg=encodeURIComponent('Hi, I would like to schedule an advisory call.\n\nName: '+name+'\nPhone: '+phone+'\nEmail: '+email);
+  window.open('https://wa.me/918010303303?text='+msg,'_blank');
+}
 </script>
 </body>
 </html>

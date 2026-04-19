@@ -888,14 +888,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
         <div class="fgr">
           <div class="fg"><label>Budget Range</label>
-            <select aria-label="Budget Range"><option value="">Select budget</option><option>₹3–5 Crore</option><option>₹5–10 Crore</option><option>₹10–20 Crore</option><option>₹20 Crore+</option></select>
+            <select id="lp-budget" aria-label="Budget Range"><option value="">Select budget</option><option>₹3–5 Crore</option><option>₹5–10 Crore</option><option>₹10–20 Crore</option><option>₹20 Crore+</option></select>
           </div>
           <div class="fg"><label>Preferred Corridor</label>
-            <select aria-label="Preferred corridor"><option value="">Any corridor</option><option>Golf Course Road</option><option>Golf Course Extension</option><option>Dwarka Expressway</option></select>
+            <select id="lp-corridor" aria-label="Preferred corridor"><option value="">Any corridor</option><option>Golf Course Road</option><option>Golf Course Extension</option><option>Dwarka Expressway</option></select>
           </div>
         </div>
         <div class="fg"><label>I Am</label>
-          <select aria-label="Buyer type"><option value="">Select profile</option><option>NRI — Looking to Invest</option><option>Resident HNI Buyer</option><option>Investor — Capital Appreciation</option><option>End User / Self-Occupation</option></select>
+          <select id="lp-type" aria-label="Buyer type"><option value="">Select profile</option><option>NRI — Looking to Invest</option><option>Resident HNI Buyer</option><option>Investor — Capital Appreciation</option><option>End User / Self-Occupation</option></select>
         </div>
         <button class="fb2" type="button" onclick="submitLpForm()">Schedule Advisory Call →</button>
         <p class="fn">We respect your privacy. Your information is never shared with third parties. RERA: RC/HARERA/GGM/1940/1535/2022/308. Channel partner communication — not a developer advertisement. Prices are indicative.</p>
@@ -1021,6 +1021,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script>
+  const SUPABASE_URL = 'https://enhnnatzvrrhvcgswdzn.supabase.co';
+  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVuaG5uYXR6dnJyaHZjZ3N3ZHpuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM5MjE0OTUsImV4cCI6MjA4OTQ5NzQ5NX0.0VrlfP6a4bDpXU-8o1S5zCAog-t8zVSh9bVLt6D36O4';
+  let _supabaseClient = null;
+  function getSupabase(){
+    if(!_supabaseClient && window.supabase){
+      _supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    }
+    return _supabaseClient;
+  }
+  async function saveLead(data){
+    try{
+      const sb = getSupabase();
+      if(!sb){console.warn('Supabase not loaded'); return;}
+      const { error } = await sb.from('luxe_property_leads').insert([data]);
+      if(error) console.error('Supabase error:', error.message);
+    }catch(err){console.error('Failed to save lead:', err);}
+  }
+</script>
+
 <script>
 const cur=document.getElementById('cur'),curR=document.getElementById('curR');
 let mx=0,my=0,rx=0,ry=0;
@@ -1054,9 +1075,26 @@ function submitLpForm(){
   var name=document.getElementById('lp-name').value.trim();
   var phone=document.getElementById('lp-phone').value.trim();
   var email=document.getElementById('lp-email').value.trim();
+  var budget=document.getElementById('lp-budget').value||null;
+  var corridor=document.getElementById('lp-corridor').value||null;
+  var buyerType=document.getElementById('lp-type').value||null;
   if(!name||!phone||!email){alert('Please fill in your name, email and phone number.');return;}
   if(typeof fbq==='function')fbq('track','Lead',{content_name:'homepage_callback_form'});
-  var msg=encodeURIComponent('Hi, I would like to schedule an advisory call.\n\nName: '+name+'\nPhone: '+phone+'\nEmail: '+email);
+  var parts=name.split(' ');
+  var firstName=parts.shift();
+  var lastName=parts.join(' ')||null;
+  saveLead({
+    first_name:firstName,
+    last_name:lastName,
+    email:email,
+    phone_code:'+91',
+    phone:phone,
+    buyer_type:buyerType,
+    budget:budget,
+    visit_timing:corridor,
+    source:'homepage_callback_form'
+  });
+  var msg=encodeURIComponent('Hi, I would like to schedule an advisory call.\n\nName: '+name+'\nPhone: '+phone+'\nEmail: '+email+'\nBudget: '+(budget||'Not specified')+'\nCorridor: '+(corridor||'Any')+'\nProfile: '+(buyerType||'Not specified'));
   window.open('https://wa.me/918010303303?text='+msg,'_blank');
 }
 </script>

@@ -248,8 +248,11 @@ h1.hh em{font-style:italic;font-weight:300;color:var(--green)}
 
 .hr{background:var(--off);position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;padding:60px 60px 80px}
 .hr-link{color:inherit;text-decoration:none;cursor:pointer}
-.hr-num{position:absolute;top:50%;left:50%;transform:translate(-50%,-55%);font-family:var(--fd);font-size:clamp(150px,17vw,230px);font-weight:300;color:rgba(26,26,26,.035);line-height:1;user-select:none;letter-spacing:-.05em}
-.hr-bar{position:absolute;top:0;left:60px;width:1px;height:45%;background:linear-gradient(to bottom,transparent,var(--green));opacity:.25}
+.hr-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;transition:transform 1.2s var(--ez)}
+.hr-link:hover .hr-img{transform:scale(1.04)}
+.hr-img-ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(245,243,238,.55) 0%,rgba(245,243,238,.78) 55%,rgba(245,243,238,.94) 100%);z-index:0}
+.hr-num{position:absolute;top:50%;left:50%;transform:translate(-50%,-55%);font-family:var(--fd);font-size:clamp(150px,17vw,230px);font-weight:300;color:rgba(26,26,26,.07);line-height:1;user-select:none;letter-spacing:-.05em;z-index:1}
+.hr-bar{position:absolute;top:0;left:60px;width:1px;height:45%;background:linear-gradient(to bottom,transparent,var(--green));opacity:.5;z-index:1}
 .hr-status{position:absolute;top:60px;right:60px;display:flex;align-items:center;gap:8px;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--green)}
 .hr-sdot{width:5px;height:5px;border-radius:50%;background:var(--green);animation:bl 2s ease infinite}
 @keyframes bl{0%,100%{opacity:1}50%{opacity:.25}}
@@ -314,6 +317,10 @@ section{padding:108px 0}
 .pc:hover .pc-vline{height:100%}
 .pc-illus{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:.07;transition:opacity .5s,transform .6s var(--ez)}
 .pc:hover .pc-illus{opacity:.14;transform:scale(1.03)}
+.pc-illus.pc-img{opacity:1;display:block}
+.pc-illus.pc-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s var(--ez)}
+.pc:hover .pc-illus.pc-img{opacity:1;transform:none}
+.pc:hover .pc-illus.pc-img img{transform:scale(1.05)}
 .pc-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(22,22,20,.85) 0%,rgba(22,22,20,.07) 52%,transparent 100%)}
 .pc-co{position:absolute;bottom:0;left:0;right:0;padding:28px 26px}
 .pst{display:inline-flex;align-items:center;gap:7px;font-size:9px;letter-spacing:.2em;text-transform:uppercase;padding:5px 12px;margin-bottom:14px;font-weight:400}
@@ -570,6 +577,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
   <a href="https://www.luxe-property.in/oberoi-realty-gurgaon" class="hr hr-link">
+    <img class="hr-img" src="assets/images/hero-bg.webp" alt="Oberoi Realty Sector 58 Gurgaon — luxury tower exterior on Golf Course Extension Road" width="1400" height="875" fetchpriority="high" />
+    <div class="hr-img-ov"></div>
     <div class="hr-num">58</div>
     <div class="hr-bar"></div>
     <div class="hr-status"><span class="hr-sdot"></span>Pre-Launch Now Open</div>
@@ -653,7 +662,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="https://www.luxe-property.in/oberoi-realty-gurgaon" class="pc-link">
       <article class="pc fi" itemscope itemtype="https://schema.org/Apartment">
         <div class="pc-vline"></div>
-        <div class="pc-illus"><svg viewBox="0 0 200 280" fill="none"><rect x="50" y="20" width="100" height="260" fill="#1A1A1A" opacity=".45"/><rect x="58" y="30" width="14" height="18" fill="#1A1A1A" opacity=".5"/><rect x="76" y="30" width="14" height="18" fill="#1A1A1A" opacity=".5"/><rect x="94" y="30" width="14" height="18" fill="#1A1A1A" opacity=".5"/><rect x="112" y="30" width="14" height="18" fill="#1A1A1A" opacity=".5"/><rect x="58" y="56" width="14" height="18" fill="#1A1A1A" opacity=".5"/><rect x="76" y="56" width="14" height="18" fill="#1A1A1A" opacity=".5"/><rect x="75" y="200" width="50" height="80" fill="#1A1A1A" opacity=".6"/></svg></div>
+        <div class="pc-illus pc-img"><img src="assets/images/hero-bg.webp" alt="Oberoi Realty Sector 58 Gurgaon — luxury tower exterior" loading="lazy" width="800" height="1067" /></div>
         <div class="pc-ov"></div><div class="pc-arr">→</div>
         <div class="pc-co">
           <div class="pst st-pre"><span class="st-dot"></span>Pre-Launch</div>
@@ -671,7 +680,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="https://www.luxe-property.in/max-antara-sector-36a-gurgaon" class="pc-link">
       <article class="pc fi" itemscope itemtype="https://schema.org/Apartment">
         <div class="pc-vline"></div>
-        <div class="pc-illus"><svg viewBox="0 0 200 280" fill="none"><rect x="40" y="60" width="55" height="220" fill="#1A1A1A" opacity=".38"/><rect x="105" y="100" width="55" height="180" fill="#1A1A1A" opacity=".32"/><rect x="48" y="72" width="10" height="14" fill="#1A1A1A" opacity=".46"/><rect x="62" y="72" width="10" height="14" fill="#1A1A1A" opacity=".46"/><rect x="48" y="92" width="10" height="14" fill="#1A1A1A" opacity=".46"/><rect x="62" y="92" width="10" height="14" fill="#1A1A1A" opacity=".46"/><rect x="113" y="112" width="10" height="14" fill="#1A1A1A" opacity=".46"/><rect x="127" y="112" width="10" height="14" fill="#1A1A1A" opacity=".46"/></svg></div>
+        <div class="pc-illus pc-img"><img src="assets/max-antara-images/hero-estate-361.jpg" alt="Max Antara Estate 361 Sector 36A Gurgaon — Dwarka Expressway luxury tower" loading="lazy" width="800" height="1067" /></div>
         <div class="pc-ov"></div><div class="pc-arr">→</div>
         <div class="pc-co">
           <div class="pst st-pre"><span class="st-dot"></span>Pre-Launch</div>
@@ -689,7 +698,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="https://www.luxe-property.in/godrej-samaris-sector-53-gurgaon" class="pc-link">
       <article class="pc fi" itemscope itemtype="https://schema.org/Apartment">
         <div class="pc-vline"></div>
-        <div class="pc-illus"><svg viewBox="0 0 200 280" fill="none"><rect x="30" y="30" width="40" height="250" fill="#1A1A1A" opacity=".42"/><rect x="80" y="50" width="40" height="230" fill="#1A1A1A" opacity=".38"/><rect x="130" y="40" width="40" height="240" fill="#1A1A1A" opacity=".42"/><rect x="36" y="44" width="8" height="12" fill="#1A1A1A" opacity=".5"/><rect x="56" y="44" width="8" height="12" fill="#1A1A1A" opacity=".5"/><rect x="86" y="64" width="8" height="12" fill="#1A1A1A" opacity=".5"/><rect x="106" y="64" width="8" height="12" fill="#1A1A1A" opacity=".5"/><rect x="136" y="54" width="8" height="12" fill="#1A1A1A" opacity=".5"/><rect x="156" y="54" width="8" height="12" fill="#1A1A1A" opacity=".5"/></svg></div>
+        <div class="pc-illus pc-img"><img src="assets/images/about-visual.webp" alt="Godrej Samaris Sector 53 Gurgaon — Golf Course Road luxury residence interior" loading="lazy" width="800" height="1067" /></div>
         <div class="pc-ov"></div><div class="pc-arr">→</div>
         <div class="pc-co">
           <div class="pst st-pre"><span class="st-dot"></span>Pre-Launch</div>

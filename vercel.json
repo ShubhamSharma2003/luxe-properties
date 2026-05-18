@@ -1,4 +1,16 @@
 {
+  "redirects": [
+    {
+      "source": "/oberoi-360-north-sector-58-gurgaon",
+      "destination": "/oberoi-realty-gurgaon",
+      "permanent": true
+    },
+    {
+      "source": "/oberoi-360-north-sector-58-gurgaon/:path*",
+      "destination": "/oberoi-realty-gurgaon",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/assets/images/(.*)",

@@ -1,5 +1,13 @@
 {
+  "cleanUrls": true,
+  "trailingSlash": false,
   "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "luxe-property.in" }],
+      "destination": "https://www.luxe-property.in/:path*",
+      "permanent": true
+    },
     {
       "source": "/oberoi-360-north-sector-58-gurgaon",
       "destination": "/oberoi-realty-gurgaon",

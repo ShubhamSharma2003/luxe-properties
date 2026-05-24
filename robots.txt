@@ -40,4 +40,4 @@ Disallow:
 User-agent: *
 Disallow:
 
-Sitemap: https://luxe-property.in/sitemap.xml
+Sitemap: https://www.luxe-property.in/sitemap.xml

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
@@ -507,12 +507,13 @@ footer{background:var(--bg-soft);padding:72px 0 36px}
   <div class="topbar-inner">
     <a href="/" class="brand" aria-label="Luxe Property — luxury real estate advisory, Gurgaon">
       <span class="brand-mark" aria-hidden="true">L</span>
-      <span class="brand-text">Luxe Property · Gurgaon</span>
+      <span class="brand-text">Luxe Property</span>
     </a>
     <nav class="nav" aria-label="Main navigation">
       <a href="#upcoming">Upcoming</a>
       <a href="#properties">Properties</a>
       <a href="#corridors">Corridors</a>
+      <a href="/blog">Blog</a>
       <a href="#nri">NRI Desk</a>
       <a href="#about">About</a>
     </nav>
@@ -890,6 +891,59 @@ footer{background:var(--bg-soft);padding:72px 0 36px}
   </div>
 </section>
 
+<!-- LATEST INSIGHTS / BLOG -->
+<style>
+.insights-card{display:grid;grid-template-columns:1fr 1.15fr;gap:0;border:1px solid var(--line);background:var(--bg-card);overflow:hidden;transition:box-shadow .3s}
+.insights-card:hover{box-shadow:0 20px 50px -22px rgba(26,26,26,.18)}
+.insights-card-img{position:relative;overflow:hidden;background:var(--bg-soft);min-height:380px}
+.insights-card-img img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;transition:transform .6s}
+.insights-card:hover .insights-card-img img{transform:scale(1.03)}
+.insights-card-body{padding:48px 44px;display:flex;flex-direction:column;justify-content:center}
+@media (max-width:860px){
+  .insights-card{grid-template-columns:1fr}
+  .insights-card-img{min-height:240px}
+  .insights-card-body{padding:32px 26px}
+}
+</style>
+<section id="insights" style="background:var(--bg-soft)">
+  <div class="container">
+    <div style="display:flex;justify-content:space-between;align-items:end;gap:32px;margin-bottom:48px;flex-wrap:wrap">
+      <div>
+        <span class="eyebrow">From the Advisory Desk</span>
+        <h2 style="margin-top:18px;max-width:620px;">Independent Project Reviews &amp; <em>Market Reports</em></h2>
+      </div>
+      <a href="/blog" style="display:inline-flex;align-items:center;gap:10px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink);font-weight:500;padding:14px 22px;border:1px solid var(--ink-line);transition:all .2s" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--ink-line)';this.style.color='var(--ink)'">All Reviews &amp; Reports →</a>
+    </div>
+
+    <a href="/blog/oberoi-gurgaon-review-2025" class="insights-card">
+      <div class="insights-card-img">
+        <span style="position:absolute;top:24px;left:24px;background:var(--gold);color:var(--ink);padding:7px 14px;font-size:10px;letter-spacing:.22em;text-transform:uppercase;font-weight:500;z-index:2">Featured Review</span>
+        <img src="/assets/oberoi-360-north/1.jpeg" alt="Oberoi Three Sixty North — Sector 58 Gurgaon" loading="lazy" />
+      </div>
+      <div class="insights-card-body">
+        <div style="display:flex;gap:14px;align-items:center;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:18px">
+          <span style="color:var(--gold)">Ultra Luxury Residential</span>
+          <span style="color:var(--ink-line)">·</span>
+          <span>May 2025</span>
+          <span style="color:var(--ink-line)">·</span>
+          <span>21 min read</span>
+        </div>
+        <h3 style="font-size:clamp(24px,2.4vw,34px);line-height:1.25;margin-bottom:16px">Oberoi Gurgaon Review 2025: Price, Location, Investment &amp; <em style="color:var(--gold);font-style:italic">Ultra Luxury</em> Analysis</h3>
+        <div style="font-family:var(--serif);font-size:17px;font-style:italic;color:var(--gold);margin-bottom:16px;line-height:1.5">An independent deep-research review of Oberoi Three Sixty North, Sector 58 — benchmarked against Dubai, Singapore, and global branded residences.</div>
+        <p style="font-size:14.5px;line-height:1.8;color:var(--ink-soft);font-weight:300;margin-bottom:24px">Low density. Hospitality-grade specification. A developer pedigree most Gurgaon builders cannot replicate. But at ₹25,000–₹45,000 per sq ft, execution in a new geography forgives nothing — read why this earns 8.9/10 with open eyes.</p>
+        <div style="display:flex;align-items:center;gap:16px;padding:16px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:24px">
+          <div style="font-family:var(--serif);font-size:34px;color:var(--gold);line-height:1">8.9</div>
+          <div>
+            <div style="font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:3px">Overall Rating · / 10</div>
+            <div style="font-family:var(--serif);font-style:italic;font-size:13.5px;color:var(--ink-soft)">Best-in-class — conditional on delivery</div>
+          </div>
+        </div>
+        <span style="display:inline-flex;align-items:center;gap:10px;background:var(--ink);color:var(--bg);padding:14px 24px;font-size:11px;letter-spacing:.24em;text-transform:uppercase;font-weight:500;width:fit-content">Read Full Review →</span>
+      </div>
+    </a>
+  </div>
+</section>
+
 <!-- WHY LUXE -->
 <section>
   <div class="container">
@@ -1139,7 +1193,7 @@ footer{background:var(--bg-soft);padding:72px 0 36px}
       <div class="foot-col">
         <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
           <span class="brand-mark" aria-hidden="true">L</span>
-          <span style="font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:var(--ink-mute)">Luxe Property · Gurgaon</span>
+          <span style="font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:var(--ink-mute)">Luxe Property</span>
         </div>
         <p>Gurgaon's most trusted luxury real estate advisory — serving HNI and NRI buyers since 2005 with pre-launch access, market intelligence, and honest counsel.</p>
         <div style="margin-top:20px;display:flex;flex-direction:column;gap:6px">
@@ -1176,7 +1230,7 @@ footer{background:var(--bg-soft);padding:72px 0 36px}
     </div>
     <div class="foot-legal">
       <div>
-        <div>© 2026 Luxe Property · Gurgaon · All Rights Reserved. HARERA Licensed Channel Partner. Prices indicative. Not a developer advertisement. Verify all project details independently before transacting.</div>
+        <div>© 2026 Luxe Property · All Rights Reserved. HARERA Licensed Channel Partner. Prices indicative. Not a developer advertisement. Verify all project details independently before transacting.</div>
         <div style="margin-top:6px;font-size:11px;color:var(--ink-mute)">Page last updated: May 2026</div>
       </div>
       <div class="foot-links">
